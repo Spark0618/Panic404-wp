@@ -1,0 +1,64 @@
+site_name: Panic404-wp
+site_description: Panic404-wp 收录了队内成员编写的wp
+site_author: Panic404 Team
+strict: false
+
+# Repository
+repo_name: 'CTF-USTB/Panic404-wp'
+repo_url: 'https://github.com/CTF-USTB/Panic404-wp'
+#edit_uri: 'https://'
+
+# Copyright
+copyright: 'Copyright &copy; 2025 Panic404 Team'
+
+# Theme
+theme:
+  name: material
+  # custom_dir: 'mkdocs-material/material/templates'
+  static_templates:
+    - 404.html
+  language: 'zh'
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: red
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  include_search_page: false
+  search_index_only: true
+  favicon: 'favicon.ico'
+  icon:
+    logo: 'material/school'
+  features:
+    - content.action.edit
+    - navigation.tabs
+    - navigation.instant: false
+  font:
+    text: 'Fira Sans'
+    code: 'Fira Mono'
+
+plugins:
+- toggle-sidebar:
+    theme: material
+    toggle_button: all
+
+extra_css:
+  - https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.9/index.global.min.css
+  - https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.9/index.global.min.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.9/index.global.min.js
+  - https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.9/index.global.min.js
+  - assets/js/calendar.js   # 自己写的初始化代码
