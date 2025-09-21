@@ -17,7 +17,7 @@ jobs:
 
       - name: Generate schedule JSON
         run: |
-          python .github/scripts/generate_schedule.py
+          python scripts/generate_schedule.py
 
       - name: Commit & Push
         run: |

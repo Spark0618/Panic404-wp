@@ -1,9 +1,4 @@
----
-link: https://www.notion.so/unfinish-275a2d438745813a88b1c68894c2093b
-notionID: 275a2d43-8745-813a-88b1-c68894c2093b
----
-
->网鼎杯2018
+> 网鼎杯
 
 发现注册页
 
@@ -64,3 +59,6 @@ inject_post()
 
 ![](.\images\unfinish\flag输出.png)
 
+<p style="text-align: right;">
+by. Spark0618
+</p>

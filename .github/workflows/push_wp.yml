@@ -16,23 +16,13 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Show repo files for debugging
-        run: |
-          pwd
-          echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
-          echo "Listing .github and .github/scripts..."
-          ls -la .github || true
-          ls -la .github/scripts || true
-          echo "Searching for the python script..."
-          find . -maxdepth 5 -type f -name 'update_schedule_on_push.py' -print || true
-
       - name: Update schedule JSON
         env:
           COMMITTER_NAME: ${{ github.actor }}
           COMMIT_URL: ${{ github.event.head_commit.url }}
           COMMIT_FILES: ${{ toJson(github.event.commits.*.modified) }}
         run: |
-          python .github/scripts/update_schedule_on_push.py
+          python scripts/update_schedule_on_push.py
 
       - name: Commit & Push
         run: |
