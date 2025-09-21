@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - 'docs/**'
+      
+permissions:
+  contents: write
 
 jobs:
   update:
