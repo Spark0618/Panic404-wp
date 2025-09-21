@@ -2,11 +2,11 @@
 
 发现注册页
 
-![](.\images\unfinish\注册页.png)
+![](./images/unfinish/注册页.png)
 
 注入username字段成功
 
-![](.\images\unfinish\hackbar.png)
+![](./images/unfinish/hackbar.png)
 
 编写二分时间盲注脚本
 
@@ -57,8 +57,9 @@ inject_post()
 
 输出
 
-![](.\images\unfinish\flag输出.png)
+![](./images/unfinish/flag输出.png)
 
 <p style="text-align: right;">
 by. Spark0618
 </p>
+
