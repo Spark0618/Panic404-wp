@@ -13,7 +13,7 @@ git clone https://github.com/CTF-USTB/Panic404-wp.git
 git add .
 ```
 
-可以多次修改多次添加，当所有改动都加入工作区后，需要 **提交（commit）** 到本地仓库
+可以多次修改多次添加，当所有改动都加入暂存区后，需要 **提交（commit）** 到本地仓库
 ```sh
 # "description" 字符串为这次提交的描述
 git commit -m "description"
