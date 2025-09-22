@@ -1,4 +1,4 @@
-name: Update schedule on push
+name: Update calendar on push
 
 on:
   push:
@@ -23,14 +23,14 @@ jobs:
         env:
           COMMITTER_NAME: ${{ github.actor }}
           COMMIT_URL: ${{ github.event.head_commit.url }}
-          COMMIT_FILES: ${{ toJson(github.event.commits.*.modified) }}
+          COMMIT_FILES: ${{ github.event.commits.*.added }}
         run: |
-          python scripts/update_schedule_on_push.py
+          python scripts/update_calendar_on_push.py
 
       - name: Commit & Push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data/schedule.json
-          git commit -m "Update schedule from push" || echo "No changes"
+          git add docs/data/calendar.json
+          git commit -m "Update calendar from push" || echo "No changes"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:main
