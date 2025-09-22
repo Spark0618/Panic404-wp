@@ -1,6 +1,6 @@
 import json, os, datetime, ast
 
-schedule_file = 'docs/data/schedule.json'
+schedule_file = 'docs/data/calendar.json'
 today = datetime.date.today().isoformat()
 
 # 取环境变量
@@ -39,19 +39,21 @@ else:
     events = []
 
 # 先找当天该人的 pending 事件
-pending_index = None
-for idx, ev in enumerate(events):
-    if ev.get('date') == today and ev.get('title') == committer and ev.get('status') == 'pending':
-        pending_index = idx
-        break
+# pending_index = None
+# for idx, ev in enumerate(events):
+#     if ev.get('date') == today and ev.get('title') == committer and ev.get('status') == 'pending':
+#         pending_index = idx
+#         break
 
-if pending_index is not None and urls:
-    # 用第一条 md 文件更新现有事件
-    events[pending_index]['status'] = 'done'
-    events[pending_index]['url'] = urls[0]
-    used = 1
-else:
-    used = 0
+# if pending_index is not None and urls:
+#     # 用第一条 md 文件更新现有事件
+#     events[pending_index]['status'] = 'done'
+#     events[pending_index]['url'] = urls[0]
+#     used = 1
+# else:
+#     used = 0
+
+used = 0
 
 # 对剩余的 md 文件新增事件
 for url in urls[used:]:
