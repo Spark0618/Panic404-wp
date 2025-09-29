@@ -62,4 +62,3 @@ inject_post()
 <p style="text-align: right;">
 by. Spark0618
 </p>
-
