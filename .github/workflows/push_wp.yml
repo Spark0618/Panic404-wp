@@ -21,7 +21,7 @@ jobs:
       - name: Get added files
         run: |
           # 先合并所有 commit 的 added
-          FILES=$(jq -c '[.commits[].added[]]' <<< '${{ toJson(github.event) }}')
+          FILES=$(jq -c '[.commits[] | (.added // [])[]]' <<< '${{ toJson(github.event) }}')
           echo "COMMIT_FILES=$FILES" >> $GITHUB_ENV
       - name: Update schedule JSON
         env:
