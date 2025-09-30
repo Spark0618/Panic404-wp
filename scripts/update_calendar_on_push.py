@@ -27,6 +27,9 @@ def to_mkdocs_url(path):
     # 去掉前导 docs/
     if path.startswith('docs/'):
         path = path[len('docs/'):]
+        # 去掉 .md 后缀
+    if path.endswith('.md'):
+        path = path[:-3]
     return path
 
 urls = [to_mkdocs_url(p) for p in md_files]
