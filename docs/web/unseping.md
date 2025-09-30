@@ -3,7 +3,25 @@
 ![](images/unseping/topic.png)
 
 ___
+`waf()` 函数过滤了 `|`、`&`、`;`、`[sapce]`、`/`、`cat`、`flag`、`tac`、`php`、`ls`
+
+shell中可以使用 `l''s` 绕过 `ls`，使用 `${IFS}` 绕过空格
+
+或者直接用下面字符串实现任意命令执行，其中 `$payload` 为八进制或十六进制编码过后的命令串
+
+```php
+<?php
+'$(printf${IFS}"'.$payload.'")'
+```
+
+
+
+___
+
+
+
 ## highlight_file()
+
 ```php
 <?php
 highlight_file(__FILE__);
