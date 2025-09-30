@@ -9,7 +9,7 @@ committer = os.environ.get('COMMITTER_NAME', 'unknown')
 # 获取本次 push 改动的文件列表（md 文件）
 files_env = os.environ.get('COMMIT_FILES', '[]')
 try:
-    files_nested = ast.literal_eval(files_env)
+    files_nested = json.loads(files_env)
 except Exception:
     files_nested = []
 # 拉平成一维
