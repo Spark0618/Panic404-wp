@@ -1,11 +1,10 @@
 name: Deploy MkDocs
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'docs/**'
+  workflow_run:
+    workflows: ["Update calendar on push"]  # 依赖的 workflow 名称
+    types:
+      - completed  # 或 success，如果只在成功时触发
 
 permissions:
   contents: write
