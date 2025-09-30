@@ -21,7 +21,7 @@ jobs:
       - name: Get added files
         run: |
           # 先合并所有 commit 的 added
-          FILES=$(jq -c '[.commits[].added[]]' <<< '${{ toJson(github.event) }}')
+          FILES=$(jq -c '[.commits[] | (.added // [])[]]' <<< '${{ toJson(github.event) }}')
           echo "COMMIT_FILES=$FILES" >> $GITHUB_ENV
       - name: Update schedule JSON
         env:
@@ -34,6 +34,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git stash
+          git pull --rebase https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} main
+          git stash pop
           git add docs/data/calendar.json
           git commit -m "Update calendar from push" || echo "No changes"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:main
