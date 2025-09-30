@@ -18,11 +18,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - name: Get added files
+      - name: Get added md files
         run: |
-          # 先合并所有 commit 的 added
-          FILES=$(jq -c '[.commits[] | (.added // [])[]]' <<< '${{ toJson(github.event) }}')
-          echo "COMMIT_FILES=$FILES" >> $GITHUB_ENV
+          git fetch origin main
+          # 获取本次 push 中所有新增文件（A = Added）
+          FILES=$(git diff --name-only --diff-filter=A origin/main~1..origin/main | grep '^docs/.*\.md$' || true)
+          # 转成 JSON 数组
+          FILES_JSON=$(jq -R -s -c 'split("\n")[:-1]' <<< "$FILES")
+          echo "COMMIT_FILES=$FILES_JSON" >> $GITHUB_ENV
       - name: Update schedule JSON
         env:
           COMMITTER_NAME: ${{ github.actor }}

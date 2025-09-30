@@ -67,5 +67,16 @@ for url in urls[used:]:
 
 # 写回
 os.makedirs(os.path.dirname(schedule_file), exist_ok=True)
+# with open(schedule_file, 'w', encoding='utf-8') as f:
+#     json.dump(events, f, ensure_ascii=False, indent=2)
+
+# 手动写，保证单个字典不换行，字典之间换行
 with open(schedule_file, 'w', encoding='utf-8') as f:
-    json.dump(events, f, ensure_ascii=False, indent=2)
+    f.write('[\n')
+    for i, ev in enumerate(events):
+        json.dump(ev, f, ensure_ascii=False, separators=(',', ':'))
+        if i < len(events) - 1:
+            f.write(',\n')
+        else:
+            f.write('\n')
+    f.write(']')
