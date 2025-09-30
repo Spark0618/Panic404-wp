@@ -77,4 +77,28 @@ git commit -m "Add my writeup"
 git push origin [username]-wp
 ```
 
-最后在Github上提交 **Pull request（PR）**，请求原仓库的审核者 **pull** 你的分支，等待审核或修改意见
+最后在Github上的该Fork仓库中提交 **Pull request（PR）**，请求原仓库的审核者 **pull** 你的分支，然后等待审核或修改意见
+
+## 后续提交PR的一般流程
+
+进入本地仓库（*此时位于之前新建的分支上*），拉取上游仓库更新本地fork仓库（*确保upstream地址在上述过程中配置完成*）
+
+```sh
+git pull --rebase upstream main
+```
+
+添加、提交编辑好的wp
+
+```sh
+git add .
+git commit -m "Add my writeup"
+```
+
+将分支推送到自己的 Fork仓库
+
+```sh
+git push --force-with-lease origin [username]-wp
+```
+
+登入Github对应Fork仓库提交PR，等待审核或修改意见
+
