@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 拉取完整历史，保证可以用 HEAD~1 等引用
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -22,7 +24,7 @@ jobs:
         run: |
           git fetch origin main
           # 获取本次 push 中所有新增文件（A = Added）
-          FILES=$(git diff --name-only --diff-filter=A origin/main~1..origin/main | grep '^docs/.*\.md$' || true)
+          FILES=$(git diff --name-only --diff-filter=A ${{ github.event.before }} ${{ github.sha }} | grep '^docs/.*\.md$' || true)
           # 转成 JSON 数组
           FILES_JSON=$(jq -R -s -c 'split("\n")[:-1]' <<< "$FILES")
           echo "COMMIT_FILES=$FILES_JSON" >> $GITHUB_ENV
