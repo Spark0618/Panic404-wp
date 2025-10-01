@@ -1,6 +1,6 @@
 > 江苏工匠杯
 
-![](https://raw.githubusercontent.com/CTF-USTB/Panic404-wp-images/main/images/20251001153644034.png)
+![](https://cdn.jsdelivr.net/gh/CTF-USTB/Panic404-wp-images/images/20251001153644034.png)
 
 ___
 `waf()` 函数过滤了 `|`、`&`、`;`、`[sapce]`、`/`、`cat`、`flag`、`tac`、`php`、`ls`

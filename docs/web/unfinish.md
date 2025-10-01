@@ -2,11 +2,11 @@
 
 发现注册页
 
-![](https://raw.githubusercontent.com/CTF-USTB/Panic404-wp-images/main/images/20251001152927560.png)
+![](https://cdn.jsdelivr.net/gh/CTF-USTB/Panic404-wp-images/images/20251001152927560.png)
 
 注入username字段成功
 
-![](https://raw.githubusercontent.com/CTF-USTB/Panic404-wp-images/main/images/20251001152927561.png)
+![](https://cdn.jsdelivr.net/gh/CTF-USTB/Panic404-wp-images/images/20251001152927561.png)
 
 编写二分时间盲注脚本
 
@@ -57,7 +57,7 @@ inject_post()
 
 输出
 
-![](https://raw.githubusercontent.com/CTF-USTB/Panic404-wp-images/main/images/20251001152927562.png)
+![](https://cdn.jsdelivr.net/gh/CTF-USTB/Panic404-wp-images/images/20251001152927562.png)
 
 <p style="text-align: right;">
 by. Spark0618
